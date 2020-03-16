@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>MotionReptiles - Boa Constrictor Morphs and Reptile Resources</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/motionreptiles.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+      <a href="http://www.motionreptiles.com/">
+      <img src="./images/motionreptiles.jpg" style="width:120px;">
+      </a>
+      <h5 class="my-0 mr-md-auto font-weight-normal"></h5>
+		<div class="dropdown">
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="index">Home</a>
+        <a class="p-2 text-dark dropdown-toggle" data-toggle="dropdown" href="store">Store</a>
+			<div class="dropdown-menu">
+				<a href="store">Main Page</a>
+				<a href="#">Boa Constrictors</a>
+			</div>
+        <a class="p-2 text-dark dropdown-toggle" data-toggle="dropdown" href="resources.html">Resources</a>
+      </nav>
+
+
+		</div>
+      <a class="btn btn-outline-primary" href="contact.html">Contact Us</a>
+    </div>
+
+
+
+
+<!-- carousel begin -->
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+
+
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="./images/carousel/image1.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="./images/carousel/image2.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="./images/carousel/image3.jpg" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<!-- carousel end -->
+
+
+
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4">Some Available Morphs</h1>
+      <p class="lead">Here are some featured animals. Make sure to visit the <a href="#store">store</a> for all our available morphs.</p>
+    </div>
+
+    <div class="container">
+      <div class="card-deck mb-3 text-center">
+
+
+
+        <div class="card mb-4 box-shadow">
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><small class="text-muted">Hypo Jungle het Lipstick Albino</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+		<img src="./store/images/store-1.jpg">
+              <li>Sex: F</li>
+              <li>Birth: 2017</li>
+              <li>Diet: Frozen/Thawed</li>
+	      <li>$500</li>
+            </ul>
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary">More Info.</button>
+          </div>
+        </div>
+
+
+
+
+        <div class="card mb-4 box-shadow">
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><small class="text-muted">Hypo Jungle het Lipstick Albino</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+		<img src="./store/images/store-2.jpg">
+              <li>Sex: F</li>
+              <li>Birth: 2017</li>
+              <li>Diet: Frozen/Thawed</li>
+	      <li>$500</li>
+            </ul>
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary">More Info.</button>
+          </div>
+        </div>
+
+
+        <div class="card mb-4 box-shadow">
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><small class="text-muted">Hypo Jungle het Lipstick Albino</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+		<img src="./store/images/store-3.jpg">
+              <li>Sex: F</li>
+              <li>Birth: 2017</li>
+              <li>Diet: Frozen/Thawed</li>
+	      <li>$500</li>
+            </ul>
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary">More Info.</button>
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+          <div class="col-12 col-md">
+            <img class="mb-2" src="./images/motionreptiles-sm.png" alt="MotionReptiles" width="24" height="24">
+            <small class="d-block mb-3 text-muted">&copy; 2013-2020</small>
+          </div>
+
+          <div class="col-6 col-md">
+            <h5>Home</h5>
+            <ul class="list-unstyled text-small">
+            </ul>
+          </div>
+
+          <div class="col-6 col-md">
+            <h5>Store</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">All Morphs</a></li>
+              <li><a class="text-muted" href="#">Featured Morphs</a></li>
+              <li><a class="text-muted" href="#">Kahl</a></li>
+              <li><a class="text-muted" href="#">VPI</a></li>
+              <li><a class="text-muted" href="#">Sharp</a></li>
+              <li><a class="text-muted" href="#">Sterling</a></li>
+              <li><a class="text-muted" href="#">Blood</a></li>
+              <li><a class="text-muted" href="#">More...</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+	      <li><a class="text-muted" href="#">Gallery/Art</a></li>
+              <li><a class="text-muted" href="#">Terms/Policies</a></li>
+              <li><a class="text-muted" href="#">Payment Plans</a></li>
+              <li><a class="text-muted" href="#">Resources/Books</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Contact Us</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Email</a></li>
+              <li><a class="text-muted" href="https://www.facebook.com/motionreptiles" target="_blank">Facebook</a></li>
+              <li><a class="text-muted" href="https://www.instagram.com/motionreptiles/" target="_blank">Instagram</a></li>
+              <li><a class="text-muted" href="https://twitter.com/motionreptiles">Twitter</a></li>
+		<br/>
+	      <li><a class="text-muted" href="#">MorphMarket</a></li>
+	      <li><a class="text-muted" href="#">KingSnake</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JS -->
+    <script src="./js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="./js/jquery-slim.min.js"><\/script>')</script>
+    <script src="./js/bootstrap.bundle.js"></script>
+<!--    <script src="../../../../assets/js/vendor/holder.min.js"></script> -->
+    <script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+    </script>
+  </body>
+</html>
