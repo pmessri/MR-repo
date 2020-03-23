@@ -32,7 +32,8 @@ html {
 */
 
 .carousel {
-  width:640px;
+  max-width:640px;
+  width:100%;
   margin:0px auto;
 }
 .carousel-inner > .item > img {
@@ -41,4 +42,15 @@ html {
 
 .text-muted {
 	font-size: 20px;
+}
+
+/*------------custom-css----------------*/
+.dropdown-menu img{ margin-right:5px; max-height: 13px; vertical-align: inherit; }
+iframe{ max-width:100%; }
+.dropdown-item i{ min-width:22px; margin-right:5px; text-align:center; }
+.contact-details p{ margin-bottom:0px; }
+.contact-details i { min-width: 30px; font-size:20px; text-align: left;}
+
+@media(max-width:768px){
+.contact-details{ padding-top:25px; padding-left:0px !important; padding-bottom:25px !important;  }
 }
