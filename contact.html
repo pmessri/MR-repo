@@ -21,7 +21,7 @@
   <h5 class="my-0 mr-md-auto font-weight-normal"></h5>
   <div class="dropdown">
     <nav class="my-2 my-md-0 mr-md-3"> <a class="p-2 text-dark" href="index">Home</a> <a class="p-2 text-dark dropdown-toggle" data-toggle="dropdown" href="store">Store</a>
-      <div class="dropdown-menu"> <a class="dropdown-item" href="store"><i class="fas fa-home"></i>Main Page</a> <a class="dropdown-item" href="#"><i class="fas fa-user"></i>Boa Constrictors</a> </div>
+      <div class="dropdown-menu"> <a class="dropdown-item" href="store"><img src="images/icon.png" alt=""/> Main Page</a> <a class="dropdown-item" href="#"><img src="images/icon.png" alt=""/>Boa Constrictors</a> </div>
       <a class="p-2 text-dark dropdown-toggle" data-toggle="dropdown" href="resources.html">Resources</a> </nav>
   </div>
   <a class="btn btn-outline-primary" href="contact.html">Contact Us</a> </div>
@@ -33,25 +33,25 @@
     <div class="row"> 
       <!-- contact-left-Section -->
       <div class="col-lg-6">
-        <form>
+        <form id="contact-form">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter name">
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" placeholder="Enter name">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email">
           </div>
           <div class="form-group">
             <label for="exampleInputnumber1">Phone Number</label>
-            <input type="text" class="form-control" id="exampleInputnumber1" placeholder="Number">
+            <input type="text" class="form-control" id="exampleInputnumber1" name="exampleInputnumber1" placeholder="Number">
           </div>
           <div class="form-group">
             <label for="exampleInputmessage1">message</label>
             <textarea class="form-control" placeholder="Enter Message" name="message"></textarea>
           </div>
           <div class="form-check pb-md-4 pb-4">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <input type="checkbox" class="form-check-input" name="exampleCheck1" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -139,14 +139,45 @@
 <!-- Bootstrap core JS --> 
 <script src="js/jquery-3.4.1.min.js" crossorigin="anonymous"></script> 
 <script>window.jQuery || document.write('<script src="./js/jquery-slim.min.js"><\/script>')</script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 <script src="js/bootstrap.bundle.js"></script> 
 <!--    <script src="../../../../assets/js/vendor/holder.min.js"></script> --> 
 <script>
-      Holder.addTheme('thumb', {
-        bg: '#55595c',
-        fg: '#eceeef',
-        text: 'Thumbnail'
-      });
-    </script>
+      // Holder.addTheme('thumb', {
+      //   bg: '#55595c',
+      //   fg: '#eceeef',
+      //   text: 'Thumbnail'
+      // });
+
+        $("#contact-form").validate({
+            rules: {
+                name: "required",
+                email: "required",
+                exampleInputnumber1: "required",
+                message: "required",
+                exampleCheck1: "required"
+            },
+            essages: {
+                name: "Please enter your Name",
+                email: "Please enter your city",
+                exampleInputnumber1: "This field is required",
+                message: "This field is required",
+                exampleCheck1: "This field is required"
+            },
+            errorPlacement: function(error, element) {
+                if ( element.is(":checkbox") ) 
+                {
+                    error.appendTo( element.parents('.form-check') );
+                }
+                else 
+                {
+                    error.insertAfter( element );
+                }
+            },
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+</script>
 </body>
 </html>
