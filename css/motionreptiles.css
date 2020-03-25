@@ -62,22 +62,35 @@ label.error{ margin-top:5px; color:#F00; font-size:13px; clear: both;display: bl
 .card-body ul li{ text-align:left; }
 .card-body img{ width:100%; }
 .card-body ul li:first-child{ text-align:left;}
-.card-body ul li:nth-child(2){ padding:10px 0 0; }
-.card-body ul li:nth-child(3n){ clear:both; padding:10px 0; }
+.card-body ul li:nth-child(2){ padding:5px 0 0; }
+.card-body ul li:nth-child(3n){ clear:both; padding:5px 0; }
 .card-body .btn{  font-size: 16px; font-weight: 600;}
-aside .card-header{ background:#007bff; color:#fff; font-weight:600;}
-aside .card-header h6{ font-weight:600; }
+aside .card-header{ background:#007bff; color:#fff; font-weight:600; padding: 10px 20px;}
+aside .card-header h6{ font-weight:600; margin-bottom:0px; }
 aside .card{ border:none; }
-.card article { margin-bottom: 20px; border: 1px solid #007bff; border-radius: 6px; }
-.store-wrap{ max-width:1170px; }
+.card article { margin-bottom: 8px; border: 1px solid #007bff; border-radius: 6px; }
+.store-wrap, .item-wrap{ max-width:1170px; }
 .preview-thumbnail.nav-tabs { border: none; margin-top: 15px;}
-.preview-thumbnail.nav-tabs li { float:left; width: 18%; margin-right: 2.5%; }
+.preview-thumbnail.nav-tabs li { float:left; width: 18%; margin-right: 2.5%; cursor:pointer; }
 .preview-thumbnail.nav-tabs li:last-of-type { margin-right: 0; }
-.store-wrap img{ max-width:100%; }
-.store-wrap .card{ border:none; }
-.details h5{ padding:2px 0;}
+.item-wrap img{ max-width:100%; }
+.item-wrap .card{ border:none; }
+.details h5{ padding:2px 0; font-size:16px; }
 .details .action .btn{ margin-top:15px; font-weight:600;}
-
+.more-btn .btn{ font-weight:600; font-size:18px; }
+aside .form-check{ margin-bottom:2px; }
+.details.col-md-6 { border: 1px solid #ccc; padding-top: 10px; padding-bottom: 10px; border-radius: 5px; }
+.details .action .btn{ background:#2280B2; color:#fff; box-shadow:none; text-transform: uppercase; }
+.details .action .btn:hover{ background:#156d9c; }
+.details h5 strong { display: inline-block; margin-right: 5px; min-width:105px; }
+.details h5.price{ display:inline-block; }
+.preview-pic{ cursor:pointer; }
+.modal img{ max-width:100%; }
+.sex .female:before{ display:inline-block; font-family: 'Font Awesome 5 Free'; content:"\f221"; margin-right:5px; font-weight: 900; font-size: 18px; vertical-align: middle; }
+.sex .male:before{ display:inline-block; font-family: 'Font Awesome 5 Free'; content:"\f222"; margin-right:5px; font-weight: 900; font-size: 18px; vertical-align: middle; }
+.store-wrap .card-body ul li strong{ display:inline-block; min-width:58px; }
+.store-wrap .card-body ul li i, .card-deck .card-body ul li i{ margin-right:5px; }
+.card-deck .card-body ul li strong { display: inline-block; min-width: 58px; }
 
 
 @media(max-width:768px){
@@ -88,4 +101,7 @@ aside .card{ border:none; }
 .preview-pic{ margin-top:10px; }
 .details{ margin-top:10px; }
 .details .action{ margin-bottom:20px; }
+.navbar-nav .dropdown-menu{ position:absolute; }
+.navbar-nav{ flex-direction:inherit; -ms-flex-direction: inherit; }
+.details.col-md-6{ margin-left:15px; margin-right:15px; }
 }
