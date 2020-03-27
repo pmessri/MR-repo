@@ -94,7 +94,11 @@ aside .form-check{ margin-bottom:2px; }
 .card-deck .card-body ul li strong { display: inline-block; min-width: 58px; }
 .details .action .btn i{ transform:rotate(90deg); margin-right:10px; }
 .more-item{ font-size:17px; font-weight:600; }
+.modal-body p{ padding-top:10px; margin-top:15px; border-top:1px solid #ccc;  font-size:14px;}
 
+@media(min-width:767px) and (max-width:1200px){
+.details.col-md-6{ max-width:48%; margin-right:10px; }	
+}
 
 @media(max-width:992px){
 .contact-details{ padding-top:25px; padding-left:0px !important; padding-bottom:25px !important; }	
@@ -110,4 +114,5 @@ aside .form-check{ margin-bottom:2px; }
 .navbar-nav .dropdown-menu{ position:absolute; }
 .navbar-nav{ flex-direction:inherit; -ms-flex-direction: inherit; }
 .item-wrap .card{ padding-left:15px; padding-right:15px; }
+
 }
