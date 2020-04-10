@@ -13,6 +13,8 @@
 
 <!--dataTables css-->
 <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+<!--jquery-ui css-->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <!--Style css-->
 <link href="css/style.css" rel="stylesheet" type="text/css">
@@ -63,10 +65,13 @@
   <div id="page-content-wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
       <button class="btn btn-primary bg-dark" id="menu-toggle"><i class="fas fa-bars"></i></button>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+      <div class="ui-widget search-top">
+  <label for="tags">Search : </label>
+  <input id="tags">
+</div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-          <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
+          <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="#">Settings</a> <a class="dropdown-item" href="#">Accounts</a> </div>
           </li>
         </ul>
@@ -75,12 +80,15 @@
     <div class="container-fluid">
       <div class="content-area">
         <div class="alert alert-secondary d-inline-block" role="alert">This is a secondary alert—box check it out!</div>
+        
+        
         <!-- Create a div where the graph will take place -->
-        <div class="graph" id="barGraph"></div>
+        <canvas class="my-4" id="myChart" width="800" height="380"></canvas>
         <!-- End Graph --> 
         
         <!-- Data table start -->
         <div class="data-table-section">
+        <div class="table-responsive">
         <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
@@ -562,6 +570,7 @@
         </tfoot>
     </table>
     </div>
+    </div>
     <!-- Data table End -->
       </div>
     </div>
@@ -576,8 +585,10 @@
 <script type="text/javascript" src="js/jquery.dataTables.min.js"></script> 
 <!--bootstrap js--> 
 <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script> 
-<!-- Load d3.js --> 
-<script src="js/d3.v4.js"></script> 
+<!--jquery-ui js-->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--chart js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 <!-- custom js --> 
 <script type="text/javascript" src="js/custom.js"></script>
 </body>
