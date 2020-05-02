@@ -1,0 +1,142 @@
+<html>
+
+<head>
+<style>
+input { padding: 6px; }
+input.images { width:1024px; }
+input.title { width: 520px; }
+input.snake_url { width: 520px; } 
+</style>
+</head>
+
+<body>
+
+<hr>
+{% for ia in images_array %}
+	{{ ia }} | 
+{% endfor %}
+<table>
+	<tr>
+		<td>{{ count }}</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="checkbox"></td>
+	</tr>
+	<tr>
+		<td style="width:180px;">id:</td>
+		<td><input type="text" value="{{ id }}"></td>
+	</tr>
+	<tr>
+		<td>mm_id:</td>
+		<td><input type="text" value="{{ mm_id }}"></td>
+	</tr>
+	<tr>
+		<td>images:</td>
+		<td><input type="text" class="images" value="{{ images }}"></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+{% for images in images_array %}
+			<img src="images/{{ mm_id }}/{{ images }}" width="5%" height="5%"><br>
+{% endfor %}
+		</td>
+	</tr>
+	<tr>
+		<td>snake_title:</td>
+		<td><input type="text" class="title" value="{{ snake_title }}"></td>
+	</tr>
+	<tr>
+		<td>snake_internal_id:</td>
+		<td><input type="text" value="{{ snake_internal_id }}"></td>
+	</tr>
+	<tr>
+		<td>snake_price:</td>
+		<td><input type="text" value="{{ snake_price }}"></td>
+	</tr>
+	<tr>
+		<td>snake_url:</td>
+		<td><input type="text" class="snake_url" value="{{ snake_url }}"></td>
+	</tr>
+	<tr>
+		<td>quantity:</td>
+		<td><input type="text" value="{{ quantity }}"></td>
+	</tr>
+	<tr>
+		<td>a_id:</td>
+		<td><input type="text" value="{{ a_id }}"></td>
+	</tr>
+	<tr>
+		<td>traits:</td>
+		<td><textarea style="width:1024px;height:80px;">{{ traits }}</textarea></td>
+	</tr>
+	<tr>
+		<td>sex:</td>
+		<td><input type="text" value="{{ sex }}"></td>
+	</tr>
+	<tr>
+		<td>maturity:</td>
+		<td><input type="text" value="{{ maturity }}"></td>
+	</tr>
+	<tr>
+		<td>proven_breeder:</td>
+		<td><input type="text" value="{{ proven_breeder }}"></td>
+	</tr>
+	<tr>
+		<td>price:</td>
+		<td><input type="text" value="{{ price }}"></td>
+	</tr>
+	<tr>
+		<td>dob_MM:</td>
+		<td><input type="text" value="{{ dob_MM }}"></td>
+	</tr>
+	<tr>
+		<td>dob_DD:</td>
+		<td><input type="text" value="{{ dob_DD }}"></td>
+	</tr>
+	<tr>
+		<td>dob_YY:</td>
+		<td><input type="text" value="{{ dob_YY }}"></td>
+	</tr>
+	<tr>
+		<td>diet_prey_state:</td>
+		<td><input type="text" value="{{ diet_prey_state }}"></td>
+	</tr>
+	<tr>
+		<td>diet_prey_food:</td>
+		<td><input type="text" value="{{ diet_prey_food }}"></td>
+	</tr>
+	<tr>
+		<td>description:</td>
+		<td><textarea style="width:1024px;height:180px;">{{ description }}</textarea></td>
+	</tr>
+	<tr>
+		<td>negotiation:</td>
+		<td><input type="text" value="{{ negotiation }}"></td>
+	</tr>
+	<tr>
+		<td>trades:</td>
+		<td><input type="text" value="{{ trades }}"></td>
+	</tr>
+	<tr>
+		<td>availability:</td>
+		<td><input type="text" value="{{ availability }}"></td>
+	</tr>
+	<tr>
+		<td>analytics_html:</td>
+		<td><textarea style="width:1024px;height:150px;">{{ analytics_html }}</textarea></td>
+	</tr>
+	<tr>
+		<td>analytics_html_strip_tags</td>
+		<td><textarea style="width:1024px;height:150px;">{{ analytics_html_strip_tags }}</textarea></td>
+	</tr>
+	<tr>
+		<td>timestamp:</td>
+		<td>{{ timestamp }}</td>
+	</tr>
+
+</table>
+
+</body>
+
+</html>
