@@ -36,12 +36,18 @@ $(document).ready(function() {
        return e.snake_price;
     });
 
-
-
     //chart js
+	if ($(window).width() < 767) {
+		fontsz = 8;
+	}
+	else
+	{
+		fontsz = 14;
+	}
     var ctx = document.getElementById("dynamic-chart");
           var myChart = new Chart(ctx, {
             type: 'bar',
+			responsive:true,
             data: {
               labels: labels,
               datasets: [{
@@ -63,7 +69,13 @@ $(document).ready(function() {
                       display: true,
                       labelString: 'Price'
                     }
-                }]
+                }],
+				xAxes: [{
+ticks: {
+autoSkip: false,
+fontSize: fontsz
+}
+}],		
               },
               legend: {
                 display: false,
