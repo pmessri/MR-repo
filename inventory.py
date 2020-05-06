@@ -32,7 +32,7 @@ db_mark_disabled()
 cnx = mysql.connector.connect(user='root', password='passme123', database='motionreptiles')
 cursor = cnx.cursor()
 
-filename = 'input/mm.csv'
+filename = 'input/inventory.csv'
 
 # ex: https://www.morphmarket.com/inventory/edit/219181?list_page=1
 mm_url_part1 = 'https://www.morphmarket.com/inventory/edit/'
