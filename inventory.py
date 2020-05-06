@@ -182,12 +182,12 @@ for row in rows:
                         "(status, mm_id, images_html, images, snake_title, snake_internal_id, snake_price, snake_url, "
                           "quantity, a_id, traits, sex, maturity, proven_breeder, price, "
                           "dob_MM, dob_DD, dob_YY, diet_prey_state, diet_prey_food, "
-                          "description, negotiation, trades, availability, analytics_html) "
+                          "description, negotiation, trades, availability, analytics_html, tag) "
                         "VALUES "
                          "(%(status)s, %(mm_id)s, %(images_html)s, %(images)s, %(snake_title)s, %(snake_internal_id)s, %(snake_price)s, %(snake_url)s, "
                          "%(quantity)s, %(a_id)s, %(traits)s, %(sex)s, %(maturity)s, %(proven_breeder)s, %(price)s, "
                          "%(dob_MM)s, %(dob_DD)s, %(dob_YY)s, %(diet_prey_state)s, %(diet_prey_food)s, "
-                          "%(description)s, %(negotiation)s, %(trades)s, %(availability)s, %(analytics_html)s)"
+                          "%(description)s, %(negotiation)s, %(trades)s, %(availability)s, %(analytics_html)s, %(tag)s)"
                         )
         data_snake = {
                     'status':                   'Enable',
@@ -214,7 +214,8 @@ for row in rows:
                     'negotiation':              negotiation,
                     'trades':                   trades,
                     'availability':             availability,
-                    'analytics_html':           analytics_html
+                    'analytics_html':           analytics_html,
+                    'tag':                      'v1'
                 }
 
         cursor.execute(insert_snake, data_snake)
@@ -222,7 +223,7 @@ for row in rows:
 
         print("Sleeping...")
 
-        sleep(2)
+        sleep(1)
 
 cursor.close()
 cnx.close()
