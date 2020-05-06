@@ -85,7 +85,7 @@ for row in rows:
         quantity =                          driver.find_element_by_xpath('//*[//form[@id="edit-form"]][@id="id_quantity"]').get_attribute('value')
         title =                             driver.find_element_by_xpath('//*[//form[@id="edit-form"]][@id="id_title"]').get_attribute('value')
         a_id =                              driver.find_element_by_xpath('//*[//form[@id="edit-form"]][@id="id_serial"]').get_attribute('value')
-        traits =                            driver.find_element_by_class_name('added-traits-wrapper').get_attribute('innerHTML')
+        traits_html =                       driver.find_element_by_class_name('added-traits-wrapper').get_attribute('innerHTML')
 
         sex_select =                        Select(driver.find_elements_by_xpath('//*[//form[@id="edit-form"]][@id="id_sex"]')[1])
         sex_selected_option =               sex_select.first_selected_option
@@ -162,7 +162,7 @@ for row in rows:
         print("quantity:" + quantity)
         print("title:"+title)
         print("a_id:"+a_id)
-        print("traits:"+traits)
+        print("traits_html:"+traits_html)
         print("sex:"+sex)
         print("maturity:"+maturity)
         print("proven_breeder:"+proven_breeder)
@@ -180,12 +180,12 @@ for row in rows:
 
         insert_snake = ("INSERT INTO morphmarket"
                         "(status, mm_id, images_html, images, snake_title, snake_internal_id, snake_price, snake_url, "
-                          "quantity, a_id, traits, sex, maturity, proven_breeder, price, "
+                          "quantity, a_id, traits_html, sex, maturity, proven_breeder, price, "
                           "dob_MM, dob_DD, dob_YY, diet_prey_state, diet_prey_food, "
                           "description, negotiation, trades, availability, analytics_html, tag) "
                         "VALUES "
                          "(%(status)s, %(mm_id)s, %(images_html)s, %(images)s, %(snake_title)s, %(snake_internal_id)s, %(snake_price)s, %(snake_url)s, "
-                         "%(quantity)s, %(a_id)s, %(traits)s, %(sex)s, %(maturity)s, %(proven_breeder)s, %(price)s, "
+                         "%(quantity)s, %(a_id)s, %(traits_html)s, %(sex)s, %(maturity)s, %(proven_breeder)s, %(price)s, "
                          "%(dob_MM)s, %(dob_DD)s, %(dob_YY)s, %(diet_prey_state)s, %(diet_prey_food)s, "
                           "%(description)s, %(negotiation)s, %(trades)s, %(availability)s, %(analytics_html)s, %(tag)s)"
                         )
@@ -200,7 +200,7 @@ for row in rows:
                     'snake_url':                snake_url,
                     'quantity':                 quantity,
                     'a_id':                     a_id,
-                    'traits':                   traits,
+                    'traits_html':              traits_html,
                     'sex':                      sex,
                     'maturity':                 maturity,
                     'proven_breeder':           proven_breeder,
