@@ -15,8 +15,8 @@ from bs4 import BeautifulSoup
 cnx = mysql.connector.connect(user='root', password='passme123', database='motionreptiles')
 cursor = cnx.cursor(dictionary=True)
 
-sql = "SELECT * FROM morphmarket WHERE status='Disable'"
-#sql = "SELECT id, traits_html FROM morphmarket WHERE status='Enable'"
+#sql = "SELECT * FROM morphmarket WHERE status='Disable'"
+sql = "SELECT id, traits_html FROM morphmarket WHERE status='Enable'"
 
 cursor.execute(sql)
 

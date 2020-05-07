@@ -215,7 +215,7 @@ for row in rows:
                     'trades':                   trades,
                     'availability':             availability,
                     'analytics_html':           analytics_html,
-                    'tag':                      'v1'
+                    'tag':                      'v1.1'
                 }
 
         cursor.execute(insert_snake, data_snake)
