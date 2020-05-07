@@ -1,8 +1,6 @@
 # import re
 from time import sleep
 from .utils import prefix_url, print_debug
-
-# from conf.config import wait_time_settings, options_settings
 from .conf.config import wait_time_settings, options_settings
 
 # fetch gene trait

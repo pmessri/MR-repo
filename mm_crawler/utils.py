@@ -1,14 +1,7 @@
 from functools import wraps
-from time import sleep
-import os
-import json
 from datetime import datetime
-import dateutil.parser
-import requests
-from urllib.parse import urlparse
 import inspect
 from .conf.config import debug_settings, wait_time_settings
-from .exceptions import RetryException
 
 
 def print_debug(func):
@@ -30,9 +23,3 @@ def print_debug(func):
 # @print_debug
 def prefix_url(string, url="https://www.morphmarket.com/"):
     return url+string
-
-
-# get current date and time
-# @print_debug
-def get_current_datetime():
-    return '{date:%d-%m-%Y_%H:%M:%S:%f}'.format( date=datetime.now() )[:-3]

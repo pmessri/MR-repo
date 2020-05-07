@@ -5,9 +5,11 @@ from tqdm import tqdm
 from .browser import Browser
 from .exceptions import RetryException, NoDataException
 from .fetcher import fetch_gene_trait, fetch_gene_trait_url, fetch_normal, fetch_super, fetch_possible_het, fetch_het, fetch_visual, fetch_possible_other, fetch_normal_other
-from .utils import get_current_datetime, print_debug
-from .conf.config import wait_time_settings, retry_settings, debug_settings
-from .db import mysql_insert
+# from .utils import  print_debug
+from .conf.config import wait_time_settings, debug_settings, options_settings
+from .db import mysql_insert, mongo_insert
+import time
+import datetime
 
 # main class InstagramCrawler
 class MMCrawler():
@@ -29,23 +31,20 @@ class MMCrawler():
     # @print_debug
     def get_counts(self):
         
-        pbar = tqdm()
-        pbar.set_description('Fetching URL')
+        pbar = tqdm(total=3)
         
         browser = self.browser
+        ts = time.time()
+        timestamp = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
         
         
         for key, value in self.urls.items():
 
             pbar.set_description('Fetching: '+key)
+            pbar.update(1)
             browser.get(value)
-            # browser.implicitly_wait(wait_time_settings['PAGE_WAIT_TIME'])
             sleep(wait_time_settings['PAGE_WAIT_TIME'])
-            datetime = get_current_datetime()
 
-            
-            
-            # table = browser.find_one(".gene-index clearfix")
             elems = browser.find("div.gene-index.clearfix > div")
 
             if not elems:
@@ -84,22 +83,12 @@ class MMCrawler():
                     data.append(possible_other)
                     data.append(normal_other)
                     data.append(type_)
-
-                    # print ('Gene trait: '+gene_trait)
-                    # print ('Gene trait url: '+gene_trait_url)
-                    # print ('Normal: ',normal)
-                    # print ('Super: ',super_)
-                    # print ('Possible het: ',possible_het)
-                    # print ('Het: ',het)
-                    # print ('Visual: ',visual)
-                    # print ('Possible other: ',possible_other)
-                    # print ('Normal Other: ',normal_other)
-
-                    # print(data)
+                    data.append(timestamp)
                     
-                    # print('\n')
-
-                    mysql_insert(data)
+                    if options_settings['MYSQL_SAVE']:
+                        mysql_insert(data)
+                    if options_settings['MONGODB_SAVE']:
+                        mongo_insert(data)
 
                 except Exception:
                     err_tb = traceback.format_exc()
@@ -107,9 +96,6 @@ class MMCrawler():
                     if debug_settings['PRINT_TB']:
                         traceback.print_exc()
                         print( "*-*-*-*-*- Exception Occured: *-*-*-*-*-")
-
-
-            # pbar.update(1)
 
         pbar.set_description("Done ")
         pbar.close()

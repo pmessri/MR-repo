@@ -12,12 +12,10 @@ wait_time_settings = {
 
 #-----enable/disable options-----
 
-# GET_COUNTS: get counts (True or False)
 # MYSQL_SAVE: save data to MySql (True or False)
 # MONGODB_SAVE: save data to MongoDb (True or False)
 
 options_settings = {
-	"GET_COUNTS": True,
     "MYSQL_SAVE": True,
     "MONGODB_SAVE": True
 }
@@ -31,6 +29,5 @@ options_settings = {
 
 debug_settings = {
 	"PRINT_TB": True,
-	"PRINT_DEBUG_INFO": True,
 	"PRINT_FULL_DEBUG_INFO": True
 }

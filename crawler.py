@@ -14,6 +14,7 @@ def usage():
 
 # get data/counts from url
 def get_data(debug):
+    print('Initializing...')
     crawler = MMCrawler(has_screen=debug)
     return crawler.get_counts()
 
