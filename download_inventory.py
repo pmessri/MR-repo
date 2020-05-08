@@ -4,6 +4,7 @@ import os
 import uuid
 import re
 import csv
+import time
 
 from time import sleep
 
@@ -21,9 +22,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.select import Select
 
-filename = 'input/inventory.csv'
-
 mm_url_login = 'https://www.morphmarket.com/accounts/login/'
+mm_url_inventory = 'https://www.morphmarket.com/us/c/reptiles?store=motionreptiles&epoch=20&page=1&sort=nfs&layout=list'
 
 service_args = ["--ignore-ssl-errors=true"]
 chrome_options = Options()
@@ -44,3 +44,22 @@ driver.find_element_by_xpath('//*[@id="id_password"]').send_keys('Iammotion-1281
 driver.find_element_by_class_name('primaryAction').click()
 sleep(1)
 
+driver.get(mm_url_inventory)
+sleep(1)
+
+driver.get('https://www.morphmarket.com/stores/motionreptiles/export?format=csv')
+
+sleep(1)
+
+timestr = time.strftime("%m%d%Y-%H%M%S")
+
+downloaded_file = '/home/peter/Downloads/inventory.csv'
+cwd = os.getcwd()
+path_to_new_file = cwd + '/input/inventory-' + timestr + '.csv'
+path_to_symlink = cwd + '/input/inventory.csv'
+
+os.unlink(path_to_symlink)
+os.rename(downloaded_file, path_to_new_file)
+os.symlink(path_to_new_file, path_to_symlink)
+
+#driver.quit()
