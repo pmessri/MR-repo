@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import sys
 import os
 import uuid
 import re
@@ -27,7 +28,7 @@ mm_url_inventory = 'https://www.morphmarket.com/us/c/reptiles?store=motionreptil
 
 service_args = ["--ignore-ssl-errors=true"]
 chrome_options = Options()
-#chrome_options.add_argument("--headless")
+chrome_options.add_argument("--headless")
 chrome_options.add_argument("--start-maximized")
 chrome_options.add_argument("--no-sandbox")
 driver = webdriver.Chrome(
@@ -53,13 +54,29 @@ sleep(1)
 
 timestr = time.strftime("%m%d%Y-%H%M%S")
 
-downloaded_file = '/home/peter/Downloads/inventory.csv'
-cwd = os.getcwd()
-path_to_new_file = cwd + '/input/inventory-' + timestr + '.csv'
-path_to_symlink = cwd + '/input/inventory.csv'
+#downloaded_file = '/home/peter/Downloads/inventory.csv'
+downloaded_file = '/home/peter/Desktop/mm-inventory/inventory.csv'
+#cwd = os.getcwd()
+path_root = '/home/peter/Desktop/mm-inventory'
+path_to_new_file = path_root + '/input/inventory-' + timestr + '.csv'
+path_to_symlink = path_root + '/input/inventory.csv'
 
-os.unlink(path_to_symlink)
-os.rename(downloaded_file, path_to_new_file)
-os.symlink(path_to_new_file, path_to_symlink)
+try:
+    os.unlink(path_to_symlink)
+except:
+    e = sys.exc_info()
+    print(e)
+
+try:
+    os.rename(downloaded_file, path_to_new_file)
+except:
+    e = sys.exc_info()
+    print(e)
+
+try:
+    os.symlink(path_to_new_file, path_to_symlink)
+except:
+    e = sys.exc_info()
+    print(e)
 
 #driver.quit()

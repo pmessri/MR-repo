@@ -21,18 +21,29 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.select import Select
 
+cnx = mysql.connector.connect(user='root', password='passme123', database='motionreptiles')
+cursor = cnx.cursor(dictionary=True)
+
 def db_mark_disabled():
-    cnx = mysql.connector.connect(user='root', password='passme123', database='motionreptiles')
-    cursor = cnx.cursor()
-    cursor.execute("UPDATE morphmarket SET status='Disable'");
+    cursor.execute("UPDATE mm_inventory SET status='Disable'");
     cnx.commit();
+
+def get_latest_tag_increase():
+    cursor.execute("SELECT * FROM mm_inventory ORDER BY id DESC LIMIT 1");
+    row = cursor.fetchone()
+    tag = row['tag']
+    matches = re.search('run:([0-9]+)', tag)
+    tag_match = matches[1]
+    tag_integer = int(tag_match)
+    tag_integer += 1
+    tag_string = str(tag_integer)
+    tag_string = tag_string.zfill(4)
+    tag_string = "run:" + tag_string
+    return tag_string
 
 db_mark_disabled()
 
-cnx = mysql.connector.connect(user='root', password='passme123', database='motionreptiles')
-cursor = cnx.cursor()
-
-filename = 'input/inventory.csv'
+filename = '/home/peter/Desktop/mm-inventory/input/inventory.csv'
 
 # ex: https://www.morphmarket.com/inventory/edit/219181?list_page=1
 mm_url_part1 = 'https://www.morphmarket.com/inventory/edit/'
@@ -42,7 +53,7 @@ mm_url_login = 'https://www.morphmarket.com/accounts/login/'
 
 service_args = ["--ignore-ssl-errors=true"]
 chrome_options = Options()
-#chrome_options.add_argument("--headless")
+chrome_options.add_argument("--headless")
 chrome_options.add_argument("--start-maximized")
 chrome_options.add_argument("--no-sandbox")
 driver = webdriver.Chrome(
@@ -63,6 +74,7 @@ with open(filename, 'r') as csv_file:
     reader = csv.DictReader(csv_file)
     rows = list(reader)
 
+tag_string = get_latest_tag_increase()
 for row in rows:
     mm_id = int(row['Mmid'])
     if isinstance(mm_id, int):
@@ -178,7 +190,7 @@ for row in rows:
         print("availability:"+availability)
         print("analytics_html:"+analytics_html)
 
-        insert_snake = ("INSERT INTO morphmarket"
+        insert_snake = ("INSERT INTO mm_inventory"
                         "(status, mm_id, images_html, images, snake_title, snake_internal_id, snake_price, snake_url, "
                           "quantity, a_id, traits_html, sex, maturity, proven_breeder, price, "
                           "dob_MM, dob_DD, dob_YY, diet_prey_state, diet_prey_food, "
@@ -215,7 +227,7 @@ for row in rows:
                     'trades':                   trades,
                     'availability':             availability,
                     'analytics_html':           analytics_html,
-                    'tag':                      'v1.1'
+                    'tag':                      tag_string
                 }
 
         cursor.execute(insert_snake, data_snake)

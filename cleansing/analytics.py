@@ -15,8 +15,9 @@ from bs4 import BeautifulSoup
 cnx = mysql.connector.connect(user='root', password='passme123', database='motionreptiles')
 cursor = cnx.cursor(dictionary=True)
 
-#sql = "SELECT * FROM morphmarket"
-sql = "SELECT * FROM morphmarket WHERE status='Enable'"
+#sql = "SELECT * FROM mm_inventory WHERE tag='v1.1'"
+#sql = "SELECT * FROM mm_inventory"
+sql = "SELECT * FROM mm_inventory WHERE status='Enable'"
 
 cursor.execute(sql)
 
@@ -43,7 +44,7 @@ for row in results:
                     'inquiries': inquiries
                 }
 
-        sql_update = "UPDATE morphmarket SET impressions=%(impressions)s, clicks=%(clicks)s, inquiries=%(inquiries)s WHERE id=%(id)s"
+        sql_update = "UPDATE mm_inventory SET impressions=%(impressions)s, clicks=%(clicks)s, inquiries=%(inquiries)s WHERE id=%(id)s"
         cursor2 = cnx.cursor()
         cursor2.execute(sql_update, update_data)
         cnx.commit()

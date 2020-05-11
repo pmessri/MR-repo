@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import sys
 import os
 import uuid
 import re
@@ -15,8 +16,7 @@ from bs4 import BeautifulSoup
 cnx = mysql.connector.connect(user='root', password='passme123', database='motionreptiles')
 cursor = cnx.cursor(dictionary=True)
 
-#sql = "SELECT * FROM morphmarket WHERE status='Disable'"
-sql = "SELECT id, traits_html FROM morphmarket WHERE status='Enable'"
+sql = "SELECT id, traits_html FROM mm_inventory WHERE status='Enable'"
 
 cursor.execute(sql)
 
@@ -39,14 +39,18 @@ for row in results:
         if trait:
             trait = trait.strip()
 
-            sql_insert = "INSERT INTO traits(mm_id, trait) VALUES(%(mm_id)s, %(trait)s)"
+            sql_insert = "INSERT INTO mm_inventory_traits(mm_id, trait) VALUES(%(mm_id)s, %(trait)s)"
             data_insert = {
                         'mm_id': db_id,
                         'trait': trait
                     }
             cursor2 = cnx.cursor()
-            cursor2.execute(sql_insert, data_insert)
-            cnx.commit()
-
-            print(db_id,"->",trait)
+            try:
+                cursor2.execute(sql_insert, data_insert)
+                cnx.commit()
+            except:
+                e = sys.exc_info()
+                print(e)
+            else:
+                print(db_id,"->",trait)
     print("")
