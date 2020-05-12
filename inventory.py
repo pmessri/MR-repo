@@ -170,7 +170,6 @@ for row in rows:
         print("snake_internal_id:" + snake_internal_id)
         print("snake_price:" + snake_price)
         print("snake_url:" + snake_url)
-        print("\n")
 
         insert_snake = ("INSERT INTO mm_inventory"
                         "(status, mm_id, images_html, images, snake_title, snake_internal_id, snake_price, snake_url, "
@@ -215,7 +214,7 @@ for row in rows:
         cursor.execute(insert_snake, data_snake)
         cnx.commit()
 
-        print("-- Sleeping... and retrieving next snake.")
+        print("+++ Sleeping... and retrieving next snake.")
 
         sleep(1)
 
