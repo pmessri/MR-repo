@@ -164,31 +164,13 @@ for row in rows:
             urllib.request.urlretrieve(i['src'], filename_directory)
             count += 1
 
-        print(mm_id)
-        print(snake_title)
-        print(snake_internal_id)
-        print(snake_price)
-        print(snake_url)
+        print("---------------------------------------------------------------------------------")
+        print("mm_id:" + mm_id)
+        print("snake_title:" + snake_title)
+        print("snake_internal_id:" + snake_internal_id)
+        print("snake_price:" + snake_price)
+        print("snake_url:" + snake_url)
         print("\n")
-
-        print("quantity:" + quantity)
-        print("title:"+title)
-        print("a_id:"+a_id)
-        print("traits_html:"+traits_html)
-        print("sex:"+sex)
-        print("maturity:"+maturity)
-        print("proven_breeder:"+proven_breeder)
-        print("price:"+price)
-        print("dob_MM:"+dob_MM)
-        print("dob_DD:"+dob_DD)
-        print("dob_YY:"+dob_YY)
-        print("diet_prey_state:"+diet_prey_state)
-        print("diet_prey_food:"+diet_prey_food)
-        print("description:"+description)
-        print("negotiation:"+negotiation)
-        print("trades:"+trades)
-        print("availability:"+availability)
-        print("analytics_html:"+analytics_html)
 
         insert_snake = ("INSERT INTO mm_inventory"
                         "(status, mm_id, images_html, images, snake_title, snake_internal_id, snake_price, snake_url, "
@@ -233,7 +215,7 @@ for row in rows:
         cursor.execute(insert_snake, data_snake)
         cnx.commit()
 
-        print("Sleeping...")
+        print("-- Sleeping... and retrieving next snake.")
 
         sleep(1)
 
