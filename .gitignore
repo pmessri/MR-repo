@@ -1,0 +1,11 @@
+images/*
+!images/.gitkeep
+
+images.bak.000/*
+!images.bak.000/.gitkeep
+
+images_ball_python/*
+!images_ball_python/.gitkeep
+
+part2/images/*
+!part2/images/.gitkeep
