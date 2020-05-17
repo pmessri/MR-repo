@@ -75,6 +75,7 @@ with open(filename, 'r') as csv_file:
     rows = list(reader)
 
 tag_string = get_latest_tag_increase()
+
 for row in rows:
     mm_id = int(row['Mmid'])
     if isinstance(mm_id, int):
@@ -84,14 +85,13 @@ for row in rows:
 
         snake_url = str(mm_url_part1) + str(mm_id) + str(mm_url_part2)
 
-        print(mm_id)
-        print(snake_title)
-        print(snake_internal_id)
-        print(snake_price)
-        print(snake_url)
+        print("----------------------------------------------------------------------------------------------")
+        print("mm_id: " + str(mm_id))
+        print("snake_title: " + snake_title)
+        print("snake_internal_id: " + snake_internal_id)
+        print("snake_url: " + snake_url)
         print("\n")
 
-        #driver.refresh()
         driver.get(snake_url)
 
         quantity =                          driver.find_element_by_xpath('//*[//form[@id="edit-form"]][@id="id_quantity"]').get_attribute('value')
@@ -163,13 +163,6 @@ for row in rows:
             images_urls.append(filename)
             urllib.request.urlretrieve(i['src'], filename_directory)
             count += 1
-
-        print("---------------------------------------------------------------------------------")
-        print("mm_id:" + mm_id)
-        print("snake_title:" + snake_title)
-        print("snake_internal_id:" + snake_internal_id)
-        print("snake_price:" + snake_price)
-        print("snake_url:" + snake_url)
 
         insert_snake = ("INSERT INTO mm_inventory"
                         "(status, mm_id, images_html, images, snake_title, snake_internal_id, snake_price, snake_url, "
