@@ -61,7 +61,7 @@ driver = webdriver.Chrome(
     service_args=service_args,
     chrome_options=chrome_options,
 )
-driver.implicitly_wait(5)
+driver.implicitly_wait(10)
 
 # login
 driver.get(mm_url_login)
