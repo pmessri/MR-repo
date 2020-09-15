@@ -180,7 +180,7 @@ for row in rows:
                     'mm_id':                    mm_id,
                     'images_html':              str(images),
                     'images':                   str(images_urls),
-                    'snake_title':              snake_title,
+                    'snake_title':              title,
                     'snake_internal_id':        snake_internal_id,
                     'snake_price':              snake_price,
                     'snake_url':                snake_url,
