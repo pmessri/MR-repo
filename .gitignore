@@ -3,3 +3,6 @@ images/*
 
 logs/*
 !logs/.gitkeep
+
+export/images
+!export/images/.gitkeep
