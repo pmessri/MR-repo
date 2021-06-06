@@ -5,4 +5,5 @@ logs/*
 !logs/.gitkeep
 
 export/images/*
+export/images.tgz
 !export/images/.gitkeep
