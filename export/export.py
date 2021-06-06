@@ -27,7 +27,7 @@ writer.writeheader()
 cnx = mysql.connector.connect(user='root', password='passme123', database='motionreptiles')
 cursor = cnx.cursor(dictionary=True)
 
-sql = "SELECT images,mm_id,a_id,snake_title,snake_price,sex,dob_MM,dob_DD,dob_YY FROM mm_inventory WHERE date(timestamp)='2020-09-12'"
+sql = "SELECT images,mm_id,a_id,snake_title,snake_price,sex,dob_MM,dob_DD,dob_YY FROM mm_inventory WHERE date(timestamp)='2021-01-23'"
 
 cursor.execute(sql)
 
@@ -142,7 +142,7 @@ for row in results:
 
         image_file_src = '../images/' + mm_id + '/' + image_name
         image_file_dst = './images/' + image_name
-        #copyfile(image_file_src, image_file_dst)
+        copyfile(image_file_src, image_file_dst)
 
     #count = count + 1
 
