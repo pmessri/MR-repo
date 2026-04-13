@@ -1,0 +1,46 @@
+	server {
+		listen		8080;
+		listen		[::]:8080;
+		server_name dtek.motionreptiles.com;
+		root /var/www/html/dtek.motionreptiles.com/htdocs;
+
+		rewrite_log on;
+
+		## log levels: debug, info, notice, warn, error, crit, alert, or emerg
+		error_log "/var/log/nginx/error_log" info;
+
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+
+		location / {
+			#try_files $uri $uri.html $uri/ @extensionless-php;
+			try_files $uri $uri/ @extensionless-php;
+			index index.html index.htm index.php;
+		}
+
+		location /projects {
+			try_files $uri $uri/ @extensionless-projects-php;
+			index index.html index.htm index.php;
+		}
+
+		location ~ \.php$ {
+			try_files $uri =404;
+		}
+
+		location @extensionless-php {
+			rewrite ^(.*)$ $1.php last;
+		}
+
+		location @extensionless-projects-php {
+			rewrite ^/projects/(\w+) /project.php?p=$1 last;
+		}
+
+		error_page 404 /404.html;
+			location = /40x.html {
+		}
+
+		error_page 500 502 503 504 /50x.html;
+			location = /50x.html {
+			}
+	}
+
