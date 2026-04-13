@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard</title>
+
+<!--fontawesome css-->
+<link href="css/fontawesome.css" rel="stylesheet" type="text/css">
+
+<!--Bootstrap css-->
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+<!--dataTables css-->
+<link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+<!--jquery-ui css-->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<!--Style css-->
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="d-flex" id="wrapper"> 
+  
+  <!-- Sidebar -->
+  <div class="bg-light border-right bg-dark" id="sidebar-wrapper">
+    <div class="sidebar-heading">
+      <h3><a href="#"><img src="images/turtle-logo.png"/></a></h3>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li><a href="#" class="list-group-item list-group-item-action bg-dark">Dashboard</a></li>
+      <li><a href="#" class="list-group-item list-group-item-action bg-dark">Image Admin</a></li>
+      <li class="has-children"><a href="#" class="list-group-item list-group-item-action bg-dark">Sankes</a>
+        <ul class="submenu">
+          <li><a href="#" class="list-group-item list-group-item-action bg-dark">Vendors</a></li>
+          <li><a href="#" class="list-group-item list-group-item-action bg-dark">Litters</a></li>
+          <li><a href="#" class="list-group-item list-group-item-action bg-dark">Pairings</a></li>
+          <li><a href="#" class="list-group-item list-group-item-action bg-dark">Listings</a></li>
+        </ul>
+      </li>
+      <li class="has-children"><a href="#" class="list-group-item list-group-item-action bg-dark">Infrastructure</a>
+        <ul class="submenu">
+          <li><a href="#" class="list-group-item list-group-item-action bg-dark">Admin</a></li>
+          <li><a href="#" class="list-group-item list-group-item-action bg-dark">Others</a></li>
+        </ul>
+      </li>
+      <li class="has-children"><a href="#" class="list-group-item list-group-item-action bg-dark">Billing</a>
+        <ul class="submenu">
+          <li><a href="#" class="list-group-item list-group-item-action bg-dark">Customers</a></li>
+          <li><a href="#" class="list-group-item list-group-item-action bg-dark">Invoices</a></li>
+        </ul>
+      </li>
+      <li class="has-children"><a href="#" class="list-group-item list-group-item-action bg-dark">Quick Reports</a>
+        <ul class="submenu">
+          <li><a href="#" class="list-group-item list-group-item-action bg-dark">Reports 1</a></li>
+          <li><a href="#" class="list-group-item list-group-item-action bg-dark">Reports 2</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!-- /#sidebar-wrapper --> 
+  
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+      <button class="btn btn-primary bg-dark" id="menu-toggle"><i class="fas fa-bars"></i></button>
+      <div class="ui-widget search-top">
+        <input id="tags" placeholder="Search">
+      </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cog"></i></a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"><a class="dropdown-item" href="#">Setting</a> <a class="dropdown-item" href="#">Account</a> </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="content-area">
+        <div class="alert alert-secondary" role="alert">This is a secondary alert—box check it out!</div>
+        
+        <!-- Create a div where the graph will take place -->
+        <canvas class="my-4" id="dynamic-chart" width="800" height="380"></canvas>
+        <!-- End Graph --> 
+        
+        <!-- Data table start -->
+        <div class="data-table-section">
+          <div class="table-responsive">
+            <table id="table-dynamic" class="display" style="width:100%">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>MM Id</th>
+                  <th>Snake Title</th>
+                  <th>Snake Price</th>
+                  <th>Availability</th>
+                  <th>Impressions</th>
+                  <th>Clicks</th>
+                  <th>Inquiries</th>
+                </tr>
+              </thead>
+             
+              <tfoot>
+                <tr>
+                  <th>Id</th>
+                  <th>MM Id</th>
+                  <th>Snake Title</th>
+                  <th>Snake Price</th>
+                  <th>Availability</th>
+                  <th>Impressions</th>
+                  <th>Clicks</th>
+                  <th>Inquiries</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+        <!-- Data table End --> 
+      </div>
+    </div>
+  </div>
+  <!-- /#page-content-wrapper --> 
+  
+</div>
+
+<!--jquery js--> 
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script> 
+<!--dataTables js--> 
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script> 
+<!--bootstrap js--> 
+<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script> 
+<!--jquery-ui js--> 
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+<!--chart js--> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script> 
+<!-- custom js --> 
+<script type="text/javascript" src="js/custom2.js"></script>
+
+</body>
+</html>
